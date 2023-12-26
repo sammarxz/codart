@@ -1,18 +1,13 @@
-export function getExtension(language: string) {
-  switch (language) {
-    case "JavaScript":
-      return ".js";
-    case "HTML":
-      return ".html";
-    case "CSS":
-      return ".css";
-    case "Python":
-      return ".py";
-    case "Java":
-      return ".java";
-    case "TypeScript":
-      return ".ts";
-    default:
-      return ".js";
-  }
+const languageExtensions: Record<string, string> = {
+  javascript: ".js",
+  html: ".html",
+  css: ".css",
+  python: ".py",
+  java: ".java",
+  typescript: ".ts",
 };
+
+export function getExtension(language: string): string {
+  const lowerCaseLanguage = language.toLowerCase();
+  return languageExtensions[lowerCaseLanguage] || ".js";
+}
