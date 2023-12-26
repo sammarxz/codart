@@ -1,0 +1,1 @@
+export const paddings = ["1rem", "2rem", "3rem", "4rem"]

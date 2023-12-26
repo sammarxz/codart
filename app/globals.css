@@ -2,3 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --code-shadow-border: rgba(0,0,0,.8);
+  --code-highlight-border: hsla(0,0%,100%,.3);
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #848484;
+}
+
+.ace-editor-container {
+  width: 100% !important;
+}
+
+.ace_scrollbar {
+  display: none !important;
+}
+
+.resize-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%
+}
+
+.code-block {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 0 1px var(--code-highlight-border),0 0 0 1.5px var(--code-shadow-border),0 2.8px 2.2px rgba(0,0,0,.034),0 6.7px 5.3px rgba(0,0,0,.048),0 12.5px 10px rgba(0,0,0,.06),0 22.3px 17.9px rgba(0,0,0,.072),0 41.8px 33.4px rgba(0,0,0,.086),0 100px 80px rgba(0,0,0,.12);
+  width: 100%;
+}
+
+.ace_editor {
+  background-color: transparent;  
+  font-weight: 500 !important;
+  font-size: 17px !important;
+  line-height: 1.5rem !important;
+}
+
+.ace_content {
+  width: 100% !important;
+  top: 12px !important;
+  left: 12px !important;
+}
+
+.ace_scroller {
+  width: 100% !important;
+}
+
+.handle,
+.handle-top,
+.handle-bottom {
+  transition: background-color 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+.handle-top,
+.handle-bottom {
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.resize-container:hover .handle-left,
+.resize-container:hover .handle-right {
+  background: rgb(248 250 252);
+}
