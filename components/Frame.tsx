@@ -15,7 +15,7 @@ export default function Frame() {
   } = useContext(EditorContext);
 
   const [resizeDimensions, setResizeDimensions] = useState({
-    width: 1000,
+    width: 930,
     height: 500,
   });
   const [title, setTitle] = useState("App");
@@ -41,8 +41,8 @@ export default function Frame() {
       <Resizable
         minHeight={400}
         minWidth={500}
-        maxWidth={1000}
-        maxHeight={700}
+        maxWidth={1200}
+        maxHeight={1080}
         defaultSize={{
           width: resizeDimensions.width,
           height: resizeDimensions.height,

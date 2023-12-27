@@ -1,12 +1,30 @@
-import { HTMLAttributes } from "react";
+"use client";
+
+import { HTMLAttributes, useContext } from "react";
+
+import { EditorContext } from "@/context/editor.context";
 
 export function Button(props: HTMLAttributes<HTMLButtonElement>) {
+  const {
+    state: { background },
+  } = useContext(EditorContext);
+
   return (
     <button
-      className="flex items-center gap-3 py-2 px-3 bg-blue-400 rounded-md text-sm text-blue-400 
-    font-medium bg-opacity-10 hover:bg-opacity-80 hover:text-gray-50 ease-in-out transition-all 
-    duration-300"
+      className=" py-2 px-3 rounded-md text-sm 
+      font-medium relative overflow-hidden border border-white/10"
       {...props}
-    />
+    >
+      <span
+        style={{
+          background,
+          opacity: 0.3,
+        }}
+        className="block absolute inset-0"
+      />
+      <span className="opacity-100 flex items-center gap-3 text-white/90">
+        {props.children}
+      </span>
+    </button>
   );
 }
