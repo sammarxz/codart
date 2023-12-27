@@ -12,7 +12,8 @@ export function Button(props: HTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       className=" py-2 px-3 rounded-md text-sm 
-      font-medium relative overflow-hidden border border-white/10"
+      font-medium relative overflow-hidden border border-white/10
+      shadow-lg"
       {...props}
     >
       <span

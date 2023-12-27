@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode, useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import { ChevronUp } from "lucide-react";

@@ -7,7 +7,7 @@ import { EditorContext } from "@/context/editor.context";
 
 import { languages } from "@/data";
 
-import { Select } from "./Select";
+import { Select } from ".";
 
 export function LanguageSeletor() {
   const {

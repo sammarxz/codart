@@ -2,8 +2,7 @@ import dynamic from "next/dynamic";
 
 import { EditorProvider } from "@/context/editor.provider";
 
-import { Spinner } from "@/components/Spinner";
-import { CustomizationBar } from "@/components/CustomizationBar";
+import { Spinner, CustomizationBar, Footer } from "@/components";
 
 const Frame = dynamic(() => import("@/components/Frame"), {
   loading: () => <Spinner />,
@@ -16,6 +15,7 @@ export default function Home() {
       <EditorProvider>
         <CustomizationBar />
         <Frame />
+        <Footer />
       </EditorProvider>
     </main>
   );

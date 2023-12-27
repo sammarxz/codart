@@ -7,7 +7,7 @@ import { EditorContext } from "@/context/editor.context";
 
 import { getExtension } from "@/utils/getExtension";
 
-import { CodeEditor } from "./CodeEditor";
+import { CodeEditor } from ".";
 
 export default function Frame() {
   const {
@@ -15,7 +15,7 @@ export default function Frame() {
   } = useContext(EditorContext);
 
   const [resizeDimensions, setResizeDimensions] = useState({
-    width: 930,
+    width: 900,
     height: 500,
   });
   const [title, setTitle] = useState("App");

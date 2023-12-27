@@ -7,7 +7,7 @@ import { EditorContext } from "@/context/editor.context";
 
 import { themes } from "@/data";
 
-import { Select } from "./Select";
+import { Select } from ".";
 
 export function ThemeSelector() {
   const {
