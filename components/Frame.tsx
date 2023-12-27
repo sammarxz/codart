@@ -7,8 +7,9 @@ import { EditorContext } from "@/context/editor.context";
 
 import { getExtension } from "@/utils/getExtension";
 
+import { useInputAutoWidth } from "@/hooks/useInputAutoWidth";
+
 import { CodeEditor } from ".";
-import { useInputAutoWidth } from "@/app/hooks/useInputAutoWidth";
 
 export default function Frame() {
   const {
