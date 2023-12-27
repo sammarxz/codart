@@ -95,7 +95,8 @@ body {
 }
 
 .is-printing .handle,
-.is-printing .resize-dimensions {
+.is-printing .resize-dimensions,
+.is-printing .ace_cursor {
   display: none;
   visibility: hidden;
 }

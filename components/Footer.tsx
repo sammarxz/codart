@@ -3,7 +3,7 @@ import { Logo } from ".";
 
 export function Footer() {
   return (
-    <footer className="w-full max-w-[930px] mx-auto px-4 my-16 flex items-center justify-between">
+    <footer className="w-full max-w-4xl mx-auto px-4 mt-16 pb-16 flex items-center justify-between">
       <Logo />
       <div className="text-xs flex gap-4">
         <span>

@@ -1,11 +1,12 @@
 "use client";
 
 import { useContext } from "react";
-import { Download } from "lucide-react";
 
 import { EditorContext } from "@/context/editor.context";
 
 import domToImage from "@/lib/dom-to-image";
+
+import { useAsyncCallback } from "@/hooks";
 
 import { Button } from ".";
 
@@ -16,7 +17,6 @@ export function ExportButton() {
 
   const handleClick = async () => {
     if (editorRef && editorRef.current) {
-      //hide elemnets
       const editorWrapper = document.querySelector(".resize-wrapper") as any;
 
       editorWrapper.classList.add("is-printing");
@@ -26,6 +26,8 @@ export function ExportButton() {
       editorWrapper.classList.remove("is-printing");
     }
   };
+
+  const [exportCallback, exporting] = useAsyncCallback(handleClick);
 
   const exportPng = async (editorElem: HTMLDivElement) => {
     const { width, height } = dimensions;
@@ -42,9 +44,8 @@ export function ExportButton() {
   };
 
   return (
-    <Button onClick={handleClick}>
-      <Download size={18} />
-      Export PNG
+    <Button onClick={exportCallback}>
+      {exporting ? "Exporting..." : "Export PNG"}
     </Button>
   );
 }

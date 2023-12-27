@@ -7,7 +7,7 @@ import { EditorContext } from "@/context/editor.context";
 
 import { getExtension } from "@/utils/getExtension";
 
-import { useInputAutoWidth } from "@/hooks/useInputAutoWidth";
+import { useInputAutoWidth } from "@/hooks";
 
 import { CodeEditor } from ".";
 
