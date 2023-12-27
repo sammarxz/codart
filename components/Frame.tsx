@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useContext, useState } from "react";
+import { ChangeEvent, useContext, useState, useRef } from "react";
 import { Resizable } from "re-resizable";
 
 import { EditorContext } from "@/context/editor.context";
@@ -8,6 +8,7 @@ import { EditorContext } from "@/context/editor.context";
 import { getExtension } from "@/utils/getExtension";
 
 import { CodeEditor } from ".";
+import { useInputAutoWidth } from "@/app/hooks/useInputAutoWidth";
 
 export default function Frame() {
   const {
@@ -19,6 +20,13 @@ export default function Frame() {
     height: 500,
   });
   const [title, setTitle] = useState("App");
+
+  const titleContentRef = useRef<HTMLDivElement | null>(null);
+
+  const { inputWidth } = useInputAutoWidth({
+    contentRef: titleContentRef,
+    content: title,
+  });
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newTitle = e.target.value.split(".")[0];
@@ -83,14 +91,18 @@ export default function Frame() {
               <div className={`w-3 h-3 rounded-full bg-[#67f772] `}></div>
             </div>
             <div className="flex items-center">
-              <span
-                contentEditable
-                role="textbox"
-                onChange={handleTitleChange}
-                className="text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent leading-7"
-              >
+              <div ref={titleContentRef} className="invisible absolute">
                 {title}
-              </span>
+              </div>
+              <input
+                role="textbox"
+                value={title}
+                onChange={handleTitleChange}
+                className="w-fit text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent leading-7"
+                style={{
+                  width: inputWidth,
+                }}
+              />
               {getExtension(language)}
             </div>
             <div className="w-12" />
