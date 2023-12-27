@@ -15,7 +15,7 @@ export default function Frame() {
   } = useContext(EditorContext);
 
   const [resizeDimensions, setResizeDimensions] = useState({
-    width: 900,
+    width: 1020,
     height: 500,
   });
   const [title, setTitle] = useState("App");
@@ -37,7 +37,7 @@ export default function Frame() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4">
+    <div className="flex flex-col items-center justify-center gap-4 mt-4">
       <Resizable
         minHeight={400}
         minWidth={500}

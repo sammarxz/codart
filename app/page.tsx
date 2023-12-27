@@ -11,7 +11,7 @@ const Frame = dynamic(() => import("@/components/Frame"), {
 
 export default function Home() {
   return (
-    <main className=" h-[100vh] flex flex-col items-center justify-center ">
+    <main className=" h-[100vh] flex flex-col items-center justify-between">
       <EditorProvider>
         <CustomizationBar />
         <Frame />
