@@ -82,3 +82,24 @@ body {
 .logo-clip-right {
   clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 70% 50%, 50% 30%);
 }
+
+.is-printing {
+  margin: 0px;
+  padding: 0;
+  height: fit-content;
+  width: fit-content;
+}
+
+.is-printing .resize-container {
+  border-radius: 0;
+}
+
+.is-printing .handle,
+.is-printing .resize-dimensions {
+  display: none;
+  visibility: hidden;
+}
+
+.is-printing .ace_content {
+  height: auto;
+}

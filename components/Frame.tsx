@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useContext, useState, useRef } from "react";
+import { ChangeEvent, useContext, useState, useRef, useEffect } from "react";
 import { Resizable } from "re-resizable";
 
 import { EditorContext } from "@/context/editor.context";
@@ -13,21 +13,26 @@ import { CodeEditor } from ".";
 
 export default function Frame() {
   const {
-    state: { background, padding, language },
+    state: { background, padding, language, dimensions },
+    dispatch,
   } = useContext(EditorContext);
-
-  const [resizeDimensions, setResizeDimensions] = useState({
-    width: 1020,
-    height: 500,
-  });
   const [title, setTitle] = useState("App");
-
   const titleContentRef = useRef<HTMLDivElement | null>(null);
-
+  const editorRef = useRef<HTMLDivElement | null>(null);
   const { inputWidth } = useInputAutoWidth({
     contentRef: titleContentRef,
     content: title,
   });
+
+  useEffect(() => {
+    if (editorRef.current) {
+      dispatch({
+        type: "SET_EDITOR_REF",
+        payload: editorRef,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editorRef]);
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newTitle = e.target.value.split(".")[0];
@@ -42,19 +47,25 @@ export default function Frame() {
       height: parseInt(newHeight, 10),
     };
 
-    setResizeDimensions(newDimensions);
+    dispatch({
+      type: "SET_DIMENSIONS",
+      payload: newDimensions,
+    });
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 mt-4">
+    <div
+      ref={editorRef}
+      className="resize-wrapper flex flex-col items-center justify-center gap-4 mt-4"
+    >
       <Resizable
         minHeight={400}
         minWidth={500}
         maxWidth={1200}
         maxHeight={1080}
         defaultSize={{
-          width: resizeDimensions.width,
-          height: resizeDimensions.height,
+          width: dimensions.width,
+          height: dimensions.height,
         }}
         onResize={handleResize}
         className="resize-container relative rounded-2xl"
@@ -99,20 +110,21 @@ export default function Frame() {
                 role="textbox"
                 value={title}
                 onChange={handleTitleChange}
-                className="w-fit text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent leading-7"
+                className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent"
                 style={{
                   width: inputWidth,
+                  lineHeight: "1.8rem",
                 }}
               />
               {getExtension(language)}
             </div>
             <div className="w-12" />
           </div>
-          <CodeEditor resizeDimensions={resizeDimensions} />
+          <CodeEditor resizeDimensions={dimensions} />
         </div>
       </Resizable>
       <div className="resize-dimensions text-xs text-gray-500">
-        {resizeDimensions.width} x {resizeDimensions.height}
+        {dimensions.width} x {dimensions.height}
       </div>
     </div>
   );

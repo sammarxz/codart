@@ -13,6 +13,16 @@ export function editorReducer(state: State, action: Action) {
       return { ...state, background: action.payload };
     case "CHANGE_CODE":
       return { ...state, code: action.payload };
+    case "SET_EDITOR_REF":
+      return {
+        ...state,
+        editorRef: action.payload,
+      };
+    case "SET_DIMENSIONS":
+      return {
+        ...state,
+        dimensions: action.payload
+      }
     default:
       return state;
   }
