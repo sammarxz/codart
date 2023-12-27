@@ -19,7 +19,6 @@ export default function Frame() {
     height: 500,
   });
   const [title, setTitle] = useState("App");
-  const [extension, setExtension] = useState(() => getExtension(language));
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newTitle = e.target.value.split(".")[0];
@@ -62,19 +61,19 @@ export default function Frame() {
         >
           <div
             className="handle handle-top absolute left-1/2 translate-x-[-50%] top-[-4px] w-2 h-2 
-            rounded-full bg-slate-300 hover:bg-slate-50"
+            rounded-full bg-gray-300 hover:bg-gray-50"
           ></div>
           <div
             className="handle handle-bottom absolute left-1/2 bottom-[-4px] w-2 h-2 rounded-full
-        bg-slate-300 hover:bg-slate-50 "
+        bg-gray-300 hover:bg-gray-50 "
           ></div>
           <div
             className="handle handle-left absolute left-[-4px] top-1/2 w-2 h-2 rounded-full 
-        bg-slate-300 hover:bg-slate-50 "
+        bg-gray-300 hover:bg-gray-50 "
           ></div>
           <div
             className="handle handle-right absolute right-[-4px] top-1/2 w-2 h-2 rounded-full
-        bg-slate-300 hover:bg-slate-50 "
+        bg-gray-300 hover:bg-gray-50 "
           ></div>
 
           <div className="code-title h-[52px] px-4 flex items-center justify-between">
@@ -92,14 +91,14 @@ export default function Frame() {
               >
                 {title}
               </span>
-              {extension}
+              {getExtension(language)}
             </div>
             <div className="w-12" />
           </div>
           <CodeEditor resizeDimensions={resizeDimensions} />
         </div>
       </Resizable>
-      <div className="resize-dimensions text-xs text-slate-500">
+      <div className="resize-dimensions text-xs text-gray-500">
         {resizeDimensions.width} x {resizeDimensions.height}
       </div>
     </div>

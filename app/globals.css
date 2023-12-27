@@ -12,19 +12,19 @@ body {
   color: #848484;
 }
 
+.resize-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .ace-editor-container {
   width: 100% !important;
 }
 
 .ace_scrollbar {
   display: none !important;
-}
-
-.resize-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%
 }
 
 .code-block {
@@ -66,26 +66,4 @@ body {
 .resize-container:hover .handle-left,
 .resize-container:hover .handle-right {
   background: rgb(248 250 252);
-}
-
-.board-wrapper {
-  cursor: grab;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  overflow: scroll;
-  background-size: 30px 30px;
-  background-image: radial-gradient(circle, #ffffffa2 1px, rgba(255, 255, 255, 0.2) 1px);
-}
-
-.board {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
-.board.is-grabbing {
-  cursor: grabbing;
 }
