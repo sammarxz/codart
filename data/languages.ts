@@ -5,4 +5,9 @@ export const languages = [
   "Python",
   "Java",
   "TypeScript",
+  "GoLang",
+  "CSharp",
+  "Elixir",
+  "Markdown",
+  "Ruby"
 ];
