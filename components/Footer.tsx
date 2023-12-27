@@ -17,7 +17,7 @@ export function Footer() {
           </a>
         </span>
         <a
-          href=""
+          href="https://github.com/sammarxz/codart"
           target="blank"
           className="text-white flex gap-1 items-center"
         >
