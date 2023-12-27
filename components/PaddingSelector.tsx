@@ -14,11 +14,11 @@ export function PaddingSelector() {
 
   return (
     <div>
-      <div className="flex gap-2">
+      <div className="flex gap-1">
         {paddings.map((p) => (
           <button
             key={p}
-            className={`h-[37px]  flex items-center justify-center text-sm px-2 cursor-pointer
+            className={`flex items-center justify-center text-xs p-2 cursor-pointer
           ${
             padding === p && "bg-white/10 text-white rounded-md"
           } hover:text-white ease-linear transition-all duration-300

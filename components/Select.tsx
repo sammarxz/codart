@@ -36,7 +36,7 @@ export function Select({
         onClick={toggleDropdown}
         className="w-[160px] relative border border-white/20 rounded 
         flex items-center hover:text-gray-50 transition-all duration-300
-        ease-in-out cursor-pointer hover:border-white/40"
+        ease-in-out cursor-pointer hover:border-white/40 text-xs"
       >
         <div className="w-8 h-8 border-r border-white/20 flex items-center justify-center">
           {icon}
@@ -58,7 +58,7 @@ export function Select({
                 key={option}
                 onClick={() => handleOptionChange(option)}
                 className={`capitalize text-left hover:text-gray-50 
-                transition-all duration-300 ease-in-out ${
+                transition-all duration-300 ease-in-out py-1 ${
                   option === selectedOption && "text-gray-50"
                 }`}
               >
