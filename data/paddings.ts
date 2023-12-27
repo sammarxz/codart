@@ -1,1 +1,1 @@
-export const paddings = ["1rem", "2rem", "3rem", "4rem"]
+export const paddings = ["16px", "32px", "48px", "64px"]

@@ -16,6 +16,7 @@ export function CustomizationBar() {
     >
       <LanguageSeletor />
       <ThemeSelector />
+      <PaddingSelector />
       <div className="export-btn self-center ml-auto">
         <Button>
           <Download />
