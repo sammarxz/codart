@@ -2,7 +2,7 @@
 
 import { ReactNode, useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
-import { ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 interface SelectProps {
   icon: ReactNode;
@@ -44,14 +44,14 @@ export function Select({
           {icon}
         </div>
         <div className="px-2 flex-1 select-none capitalize flex items-center justify-between">
-          {selectedOption} <ChevronUp size={18} />
+          {selectedOption} <ChevronDown size={18} />
         </div>
 
         {showDropdown ? (
           <ul
             role="listbox"
             aria-expanded={showDropdown}
-            className="z-50 py-2 px-3 absolute left-8 right-0 bottom-9 bg-[#191919] 
+            className="z-50 py-2 px-3 absolute left-8 right-0 top-9 bg-[#191919] 
             border border-white/20 text-gray-400 rounded flex flex-col 
             hover:border-white/40 transition-all duration-300"
           >
