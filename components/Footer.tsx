@@ -8,7 +8,11 @@ export function Footer() {
       <div className="text-xs flex gap-4">
         <span>
           Developed by{" "}
-          <a href="" className="text-white">
+          <a
+            href="https://github.com/sammarxz"
+            target="blank"
+            className="text-white"
+          >
             @sammarxz
           </a>
         </span>
