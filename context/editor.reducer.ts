@@ -1,3 +1,5 @@
+import { MutableRefObject } from "react";
+
 import { State } from "./editor.data";
 import { Action } from "./editor.actions";
 
@@ -16,7 +18,7 @@ export function editorReducer(state: State, action: Action) {
     case "SET_EDITOR_REF":
       return {
         ...state,
-        editorRef: action.payload,
+        editorRef: action.payload as MutableRefObject<HTMLDivElement>,
       };
     case "SET_DIMENSIONS":
       return {
