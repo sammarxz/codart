@@ -10,6 +10,11 @@ import "ace-builds/src-noconflict/mode-css";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-typescript";
+import "ace-builds/src-noconflict/mode-elixir";
+import "ace-builds/src-noconflict/mode-golang";
+import "ace-builds/src-noconflict/mode-markdown";
+import "ace-builds/src-noconflict/mode-ruby";
+import "ace-builds/src-noconflict/mode-csharp";
 
 // themes
 import "ace-builds/src-noconflict/theme-monokai";
